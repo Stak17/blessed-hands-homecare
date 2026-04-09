@@ -43,8 +43,8 @@ export default function Contact() {
                 {
                   icon: <FaEnvelope className="text-pink-500 text-3xl" />,
                   title: "Email",
-                  content: "blessedhandshomecare34@gmail.com",
-                  link: "mailto:blessedhandshomecare34@gmail.com",
+                  content: "careaxisagency@gmail.com",
+                  link: "mailto:careaxisagency@gmail.com",
                   color: "text-blue-600",
                 },
                 {

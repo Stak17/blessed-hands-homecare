@@ -15,7 +15,7 @@ export default function Footer() {
           </h2>
           <p className="mt-3 text-gray-200">
             Phone: 0791 263 310 <br />
-            Email: blessedhandshomecare34@gmail.com <br />
+            Email: careaxisagency@gmail.com <br />
             Service Hours: 24/7
           </p>
         </div>

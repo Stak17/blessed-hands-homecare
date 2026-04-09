@@ -7,7 +7,7 @@ export default function Testimonials() {
     {
       name: "Grace Nakato",
       feedback:
-        "Blessed Hands Home Care provided exceptional support to my mother. The nurses were kind, professional, and attentive to every need.",
+        "Care Axis Agency provided exceptional support to my mother. The nurses were kind, professional, and attentive to every need.",
     },
     {
       name: "John Kato",
@@ -17,7 +17,7 @@ export default function Testimonials() {
     {
       name: "Susan Achieng",
       feedback:
-        "I hired Blessed Hands for disability support for my brother. They were compassionate and reliable 24/7.",
+        "I hired Care Axis Agency for disability support for my brother. They were compassionate and reliable 24/7.",
     },
   ];
 

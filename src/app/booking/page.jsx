@@ -192,7 +192,7 @@ Message: ${formData.message}`;
             <FaEnvelope className="text-pink-500 text-3xl" />
             <div>
               <h3 className="font-semibold text-blue-800">Book via Email</h3>
-              <p className="text-gray-700">blessedhandshomecare34@gmail.com</p>
+              <p className="text-gray-700">careaxisagency@gmail.com</p>
             </div>
           </div>
 
