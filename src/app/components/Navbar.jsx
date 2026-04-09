@@ -13,7 +13,7 @@ export default function Navbar() {
           className="h-10 w-auto"
         />
         <span className="text-lg font-bold text-blue-600 hidden sm:block">
-          Blessed Hands
+         Care Axis Agency
         </span>
       </Link>
 

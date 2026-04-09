@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 // Metadata
 export const metadata = {
-  title: "Blessed Hands Home Care",
+  title: "Care Axis Agency",
   description: "Compassionate home care services across Uganda",
 };
 

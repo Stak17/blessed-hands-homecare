@@ -9,7 +9,7 @@ export default function Contact() {
       {/* HERO SECTION */}
       <section className="py-24 text-center bg-gradient-to-r from-blue-100 via-white to-green-100">
         <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800">
-          Contact Blessed Hands Home Care
+          Contact Care Axis Agency
         </h1>
         <p className="mt-6 text-gray-700 max-w-2xl mx-auto">
           Reach out anytime. We are ready to provide compassionate care and support, answer your questions, and assist with bookings.
@@ -124,7 +124,7 @@ export default function Contact() {
                 Google Map Placeholder
               </div>
               <p className="mt-4 text-gray-600 text-sm">
-                Blessed Hands Home Care provides services across Uganda.
+                Care Axis Agency provides services across Uganda.
               </p>
             </div>
 

@@ -8,7 +8,7 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="py-24 text-center bg-gradient-to-r from-blue-100 via-white to-green-100">
         <h1 className="text-5xl font-extrabold text-blue-800 leading-tight">
-          Blessed Hands Home Care,
+          Care Axis Agency,
           <br /> Right Where You Need It
         </h1>
 
@@ -60,7 +60,7 @@ export default function Home() {
           </h2>
 
           <p className="text-gray-700 leading-relaxed">
-            Blessed Hands Home Care is a compassionate home care provider dedicated to delivering
+            Care Axis Agency is a compassionate home care provider dedicated to delivering
             personalized, one-to-one care services in the comfort of each client’s home. We support
             elderly individuals, new mothers, recovering patients, and those with chronic conditions.
           </p>

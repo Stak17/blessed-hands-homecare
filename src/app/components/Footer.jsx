@@ -11,7 +11,7 @@ export default function Footer() {
         {/* Brand & Contact */}
         <div>
           <h2 className="text-xl font-semibold">
-            Blessed Hands Home Care
+            Care Axis Agency
           </h2>
           <p className="mt-3 text-gray-200">
             Phone: 0791 263 310 <br />
@@ -50,7 +50,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <p className="mt-8 text-center text-gray-300 text-sm">
-        © 2026 Blessed Hands Home Care. All rights reserved.
+        © 2026 Care Axis Agency. All rights reserved.
       </p>
 
       {/* Floating WhatsApp Button */}
