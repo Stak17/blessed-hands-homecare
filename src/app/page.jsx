@@ -8,30 +8,42 @@ export default function Home() {
     <main className="bg-gray-50 min-h-screen">
 
       {/* HERO SECTION */}
-      <section className="py-24 text-center bg-gradient-to-r from-blue-100 via-white to-green-100 rounded-xl shadow-lg px-6 md:px-20">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-blue-800 leading-tight">
-          Care Axis Agency,
-          <br /> Right Where You Need It
-        </h1>
+      <section
+        className="relative text-center py-24 px-6 text-white"
+        style={{
+          backgroundImage: "url('/images/home-bg.avif')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
-        <p className="mt-6 text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-          Professional nursing and caregiving services delivered with dignity, comfort, and trust.
-        </p>
+        {/* Content */}
+        <div className="relative z-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold">
+            Care Axis Agency, Right Where You Need It
+          </h1>
 
-        <div className="mt-8 flex justify-center flex-wrap gap-4">
-          <a
-            href="/booking"
-            className="bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 hover:scale-105 transition"
-          >
-            Book Now
-          </a>
+          <p className="mt-4 text-lg max-w-2xl mx-auto">
+            Professional nursing and caregiving services delivered with dignity, comfort, and trust.
+          </p>
 
-          <a
-            href="/contact"
-            className="border border-blue-600 text-blue-700 px-8 py-3 rounded-full hover:bg-blue-50 hover:scale-105 transition"
-          >
-            Contact Us
-          </a>
+          <div className="mt-6 space-x-4">
+            <a
+              href="/booking"
+              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+            >
+              Book Now
+            </a>
+
+            <a
+              href="/contact"
+              className="border border-white px-6 py-2 rounded hover:bg-white hover:text-black transition"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
       </section>
 

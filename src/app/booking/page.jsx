@@ -23,7 +23,6 @@ export default function Booking() {
     e.preventDefault();
     setLoading(true);
 
-    // WhatsApp message template
     const waMessage = `Hello Blessed Hands Home Care, I would like to book a service:
 Name: ${formData.full_name}
 Phone: ${formData.phone}
@@ -37,7 +36,6 @@ Message: ${formData.message}`;
     )}`;
 
     try {
-      // Send booking to Supabase API
       const res = await fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -69,154 +67,142 @@ Message: ${formData.message}`;
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 py-12 px-6 md:px-20">
+    <div
+      className="min-h-screen flex items-center justify-center p-6 relative"
+      style={{
+        backgroundImage: "url('/images/booking-bg.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
-      {/* HERO */}
-      <section className="py-24 text-center bg-gradient-to-r from-blue-100 via-white to-green-100">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-800">
-          Book a Service
-        </h1>
-        <p className="mt-6 text-gray-700 max-w-2xl mx-auto">
-          Schedule professional home care services easily. We are here to support you and your loved ones.
-        </p>
-      </section>
+      {/* Form Container */}
+      <div className="relative z-10 w-full max-w-5xl grid md:grid-cols-2 gap-10">
 
-      {/* FORM & CONTACT */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+        {/* FORM */}
+        <div className="bg-white/90 backdrop-blur-md p-8 rounded-xl shadow-xl border border-gray-200">
+          <h2 className="text-2xl font-bold text-blue-800 mb-6">Booking Form</h2>
 
-          {/* FORM */}
-          <div className="bg-white/90 backdrop-blur-md p-8 rounded-xl shadow-xl border border-gray-200">
-            <h2 className="text-2xl font-bold text-blue-800 mb-6">Booking Form</h2>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Full Name</label>
+              <input
+                type="text"
+                name="full_name"
+                value={formData.full_name}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                required
+                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-              {/* Full Name */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Full Name</label>
-                <input
-                  type="text"
-                  name="full_name"
-                  value={formData.full_name}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter phone number"
+                required
+                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-              {/* Phone */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Phone Number</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter phone number"
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter email address"
+                required
+                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-              {/* Email */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Email Address</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter email address"
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              {/* Service */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Select Service</label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="">Choose a service</option>
-                  <option value="Elderly Care">Elderly Care</option>
-                  <option value="Postnatal Care (Mother & Baby)">Postnatal Care</option>
-                  <option value="Home Nursing / Travel Nurse">Home Nursing</option>
-                  <option value="Disability Support">Disability Support</option>
-                  <option value="Post-Surgery Recovery Care">Post-Surgery Care</option>
-                  <option value="Chronic Illness Care">Chronic Illness Care</option>
-                </select>
-              </div>
-
-              {/* Date */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Preferred Date</label>
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  required
-                  className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Enter your message"
-                  className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
-                />
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={loading}
-                className={`bg-blue-600 text-white py-3 rounded-full shadow-md hover:bg-blue-700 hover:scale-105 transition ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Select Service</label>
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                required
+                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                {loading ? "Submitting..." : "Submit Booking"}
-              </button>
-
-            </form>
-          </div>
-
-          {/* CONTACT */}
-          <div className="flex flex-col gap-6">
-            <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-lg flex items-center gap-4">
-              <FaWhatsapp className="text-green-500 text-3xl" />
-              <div>
-                <h3 className="font-semibold text-blue-800">Book via WhatsApp</h3>
-                <p className="text-gray-700">0791 263 310</p>
-              </div>
+                <option value="">Choose a service</option>
+                <option value="Elderly Care">Elderly Care</option>
+                <option value="Postnatal Care (Mother & Baby)">Postnatal Care</option>
+                <option value="Home Nursing / Travel Nurse">Home Nursing</option>
+                <option value="Disability Support">Disability Support</option>
+                <option value="Post-Surgery Recovery Care">Post-Surgery Care</option>
+                <option value="Chronic Illness Care">Chronic Illness Care</option>
+              </select>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-lg flex items-center gap-4">
-              <FaEnvelope className="text-pink-500 text-3xl" />
-              <div>
-                <h3 className="font-semibold text-blue-800">Book via Email</h3>
-                <p className="text-gray-700">blessedhandshomecare34@gmail.com</p>
-              </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Preferred Date</label>
+              <input
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+                required
+                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
             </div>
 
-            <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-2xl shadow text-gray-700">
-              <p>
-                <strong>Note:</strong> Advance booking is recommended, but emergency visits are available.
-              </p>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Enter your message"
+                className="w-full p-3 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+              />
             </div>
-          </div>
 
+            <button
+              type="submit"
+              disabled={loading}
+              className={`bg-blue-600 text-white py-3 rounded-full shadow-md hover:bg-blue-700 hover:scale-105 transition ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+            >
+              {loading ? "Submitting..." : "Submit Booking"}
+            </button>
+          </form>
         </div>
-      </section>
-    </main>
+
+        {/* CONTACT */}
+        <div className="flex flex-col gap-6">
+          <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-lg flex items-center gap-4">
+            <FaWhatsapp className="text-green-500 text-3xl" />
+            <div>
+              <h3 className="font-semibold text-blue-800">Book via WhatsApp</h3>
+              <p className="text-gray-700">0791 263 310</p>
+            </div>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-lg flex items-center gap-4">
+            <FaEnvelope className="text-pink-500 text-3xl" />
+            <div>
+              <h3 className="font-semibold text-blue-800">Book via Email</h3>
+              <p className="text-gray-700">blessedhandshomecare34@gmail.com</p>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-2xl shadow text-gray-700">
+            <p>
+              <strong>Note:</strong> Advance booking is recommended, but emergency visits are available.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
