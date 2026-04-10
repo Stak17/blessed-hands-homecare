@@ -1,11 +1,19 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+/* eslint-disable @next/next/no-html-link-for-pages */
+
+import {
+  FaFacebookF,
+  FaTiktok,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-blue-700 text-white py-10 relative">
+
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-start">
 
         {/* Brand & Contact */}
@@ -13,6 +21,7 @@ export default function Footer() {
           <h2 className="text-xl font-semibold">
             Care Axis Agency
           </h2>
+
           <p className="mt-3 text-gray-200">
             Phone: 0791 263 310 <br />
             Email: careaxisagency@gmail.com <br />
@@ -34,17 +43,55 @@ export default function Footer() {
         {/* Social Media */}
         <div>
           <h3 className="font-bold text-lg mb-3">Follow Us</h3>
-          <div className="flex space-x-4">
-            <a href="#" target="_blank" className="hover:text-gray-300 transition">
-              <FaFacebookF size={20} />
+
+          {/* Icons */}
+          <div className="flex space-x-5 items-center mt-2">
+
+            {/* Facebook */}
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition text-xl"
+            >
+              <FaFacebookF />
             </a>
-            <a href="#" target="_blank" className="hover:text-gray-300 transition">
-              <FaInstagram size={20} />
+
+            {/* Instagram (FIXED LINK) */}
+            <a
+              href="https://www.instagram.com/care.axisagency?igsh=MWtoNG90bXJ0YjQyMg%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-300 hover:text-pink-200 hover:scale-110 transition text-xl"
+            >
+              <FaInstagram />
             </a>
-            <a href="#" target="_blank" className="hover:text-gray-300 transition">
-              <FaLinkedinIn size={20} />
+
+            {/* TikTok (FIXED LINK) */}
+            <a
+              href="https://www.tiktok.com/@care.axis.agency?_r=1&_t=ZS-95PllPK2LM9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 hover:scale-110 transition text-xl"
+            >
+              <FaTiktok />
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-300 transition text-xl"
+            >
+              <FaLinkedinIn />
             </a>
           </div>
+
+          {/* 👇 NEW TEXT (IMPROVED VISIBILITY) */}
+          <p className="text-sm text-gray-200 mt-3">
+            Follow Care Axis Agency on social media
+          </p>
         </div>
       </div>
 
@@ -53,7 +100,7 @@ export default function Footer() {
         © 2026 Care Axis Agency. All rights reserved.
       </p>
 
-      {/* Floating WhatsApp Button */}
+      {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/256791263310"
         target="_blank"
