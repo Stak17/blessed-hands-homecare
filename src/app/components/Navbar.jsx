@@ -4,11 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false); // dropdown for Services
-  const [mobileOpen, setMobileOpen] = useState(false); // mobile menu
+  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -22,6 +21,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-5 md:px-10 flex justify-between items-center h-16">
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -38,10 +38,10 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6 relative">
-          <Link href="/" className="text-gray-700 hover:text-blue-600 transition font-medium">
+          <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium">
             Home
           </Link>
-          <Link href="/about" className="text-gray-700 hover:text-blue-600 transition font-medium">
+          <Link href="/about" className="text-gray-700 hover:text-blue-600 font-medium">
             About
           </Link>
 
@@ -49,60 +49,47 @@ export default function Navbar() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setOpen(!open)}
-              className="text-gray-700 hover:text-blue-600 font-medium transition"
+              className="text-gray-700 hover:text-blue-600 font-medium"
             >
               Services ▾
             </button>
             {open && (
-              <div className="absolute mt-2 w-56 bg-white shadow-xl border border-gray-200 rounded-lg py-2 z-50">
-                <Link
-                  href="/services"
-                  className="block px-5 py-3 text-gray-800 font-semibold hover:bg-blue-50 hover:text-blue-700 transition"
-                >
+              <div className="absolute mt-2 w-56 bg-white shadow-xl border rounded-lg py-2 z-50">
+                <Link href="/services" className="block px-5 py-3 hover:bg-blue-50">
                   All Services
                 </Link>
-                <Link
-                  href="/booking"
-                  className="block px-5 py-3 text-gray-800 font-semibold hover:bg-blue-50 hover:text-blue-700 transition"
-                >
+                <Link href="/booking" className="block px-5 py-3 hover:bg-blue-50">
                   Book Service
                 </Link>
-                <Link
-                  href="/contact"
-                  className="block px-5 py-3 text-gray-800 font-semibold hover:bg-blue-50 hover:text-blue-700 transition"
-                >
+                <Link href="/contact" className="block px-5 py-3 hover:bg-blue-50">
                   Contact
                 </Link>
               </div>
             )}
           </div>
 
-          <Link href="/booking" className="text-gray-700 hover:text-blue-600 transition font-medium">
+          <Link href="/booking" className="text-gray-700 hover:text-blue-600 font-medium">
             Booking
           </Link>
-          <Link href="/payment" className="text-gray-700 hover:text-blue-600 transition font-medium">
+          <Link href="/payment" className="text-gray-700 hover:text-blue-600 font-medium">
             Payment
           </Link>
-          <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition font-medium">
+          <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium">
             Contact
           </Link>
+
+          {/* ❌ ADMIN LINK DISABLED */}
+          {/*
+          <Link href="/admin" className="text-gray-700 hover:text-blue-600 font-medium">
+            Admin
+          </Link>
+          */}
         </div>
 
-        {/* Hamburger for Mobile */}
+        {/* Mobile Button */}
         <div className="md:hidden">
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="text-gray-700 hover:text-blue-600 focus:outline-none"
-          >
-            {mobileOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+          <button onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? "✖" : "☰"}
           </button>
         </div>
       </div>
@@ -110,54 +97,51 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white shadow-lg px-5 py-4 space-y-3">
-          <Link href="/" className="block text-gray-700 hover:text-blue-600 font-medium transition">
+          <Link href="/" className="block text-gray-700 hover:text-blue-600">
             Home
           </Link>
-          <Link href="/about" className="block text-gray-700 hover:text-blue-600 font-medium transition">
+          <Link href="/about" className="block text-gray-700 hover:text-blue-600">
             About
           </Link>
 
-          {/* Mobile Services Dropdown */}
           <div>
             <button
               onClick={() => setOpen(!open)}
-              className="w-full text-left text-gray-700 hover:text-blue-600 font-medium transition"
+              className="w-full text-left text-gray-700 hover:text-blue-600"
             >
               Services ▾
             </button>
             {open && (
               <div className="mt-2 pl-4 space-y-1 border-l-2 border-blue-500">
-                <Link
-                  href="/services"
-                  className="block px-3 py-2 bg-blue-50 text-blue-800 font-semibold rounded hover:bg-blue-100 transition"
-                >
+                <Link href="/services" className="block px-3 py-2 bg-blue-50 rounded">
                   All Services
                 </Link>
-                <Link
-                  href="/booking"
-                  className="block px-3 py-2 bg-blue-50 text-blue-800 font-semibold rounded hover:bg-blue-100 transition"
-                >
+                <Link href="/booking" className="block px-3 py-2 bg-blue-50 rounded">
                   Book Service
                 </Link>
-                <Link
-                  href="/contact"
-                  className="block px-3 py-2 bg-blue-50 text-blue-800 font-semibold rounded hover:bg-blue-100 transition"
-                >
+                <Link href="/contact" className="block px-3 py-2 bg-blue-50 rounded">
                   Contact
                 </Link>
               </div>
             )}
           </div>
 
-          <Link href="/booking" className="block text-gray-700 hover:text-blue-600 font-medium transition">
+          <Link href="/booking" className="block text-gray-700 hover:text-blue-600">
             Booking
           </Link>
-          <Link href="/payment" className="block text-gray-700 hover:text-blue-600 font-medium transition">
+          <Link href="/payment" className="block text-gray-700 hover:text-blue-600">
             Payment
           </Link>
-          <Link href="/contact" className="block text-gray-700 hover:text-blue-600 font-medium transition">
+          <Link href="/contact" className="block text-gray-700 hover:text-blue-600">
             Contact
           </Link>
+
+          {/* ❌ ADMIN LINK DISABLED (Mobile) */}
+          {/*
+          <Link href="/admin" className="block text-gray-700 hover:text-blue-600">
+            Admin
+          </Link>
+          */}
         </div>
       )}
     </nav>
